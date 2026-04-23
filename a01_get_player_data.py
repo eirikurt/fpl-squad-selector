@@ -5,6 +5,10 @@ import httpx
 from tqdm import tqdm
 
 
+def main():
+    save_data(get_player_data())
+
+
 def get_player_data():
     r = httpx.get("https://fantasy.premierleague.com/api/bootstrap-static/")
     bs = r.json()
@@ -12,9 +16,7 @@ def get_player_data():
     print("Fetching players")
     for p in tqdm(players):
         player_id = str(p["id"])
-        r = httpx.get(
-            f"https://fantasy.premierleague.com/api/element-summary/{player_id}/"
-        )
+        r = httpx.get(f"https://fantasy.premierleague.com/api/element-summary/{player_id}/")
         player_info = r.json()
         p["summary"] = player_info
     return players
@@ -32,4 +34,4 @@ def save_data(data):
 
 
 if __name__ == "__main__":
-    save_data(get_player_data())
+    main()

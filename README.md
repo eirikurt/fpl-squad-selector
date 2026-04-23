@@ -13,12 +13,12 @@ Start by installing the dependencies. If you're using pip then run
 pip install -r requirements.txt
 ```
 
-Alternatively, you can install the dependencies with [poetry](https://python-poetry.org/) 
+Alternatively, you can install the dependencies with [uv](https://docs.astral.sh/uv/) 
 ```bash
-poetry install
+uv sync
 ```
 
-Then run the script that scrapes player data from the FPL web site
+Then run the script that scrapes player data from the FPL web site (if you're using uv, replace `python` with `uv run`)
 
 ```bash
 python a01_get_player_data.py   
