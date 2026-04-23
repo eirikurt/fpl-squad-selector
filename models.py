@@ -14,4 +14,12 @@ class Player(TypedDict):
     chance_of_playing_next_round: int | None
     starts: int
     utility: float
+    scout_risks: list[ScoutRisk]
     # Loads more could be added, see /data/player_data.json for available attributes
+
+
+class ScoutRisk(TypedDict):
+    property: str
+    notes: str
+    gameweek: int
+    url: str | None
